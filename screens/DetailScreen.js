@@ -1,5 +1,13 @@
+import {useRoute} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
+
+//useRoute
+const IdText = () => {
+  const route = useRoute();
+
+  return <Text style={styles.text}>id:{route.params.id}</Text>;
+};
 
 const DetailScreen = ({route, navigation}) => {
   useEffect(() => {
@@ -33,7 +41,7 @@ const DetailScreen = ({route, navigation}) => {
   }, [navigation, route.params.id]);
   return (
     <View style={styles.block}>
-      <Text style={styles.text}>id:{route.params.id}</Text>
+      <IdText />
       <View style={styles.buttons}>
         <Button
           title="다음"
